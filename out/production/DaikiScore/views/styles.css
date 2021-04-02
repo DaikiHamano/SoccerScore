@@ -3,4 +3,26 @@
     -fx-background-image: url("/images/studyPic.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-size: 100%;
+
 }
+
+.button {
+    -fx-background-radius: 2.0em;
+    -fx-background-color: #fff;
+}
+
+.button:hover{
+    -fx-background-color:black;
+    -fx-text-fill: white;
+}
+
+.button:pressed {
+    -fx-background-color:black;
+    -fx-text-fill: black;
+}
+
+.textField {
+    -fx-text-box-border: black;
+    -fx-background-insets: 0, 0 0 1 0 ;
+}
+
