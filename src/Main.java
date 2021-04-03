@@ -16,8 +16,8 @@ public class Main extends Application{
         Parent root = FXMLLoader.load(getClass().getResource("views/view.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        //for removing mini and max button
         stage.initStyle(StageStyle.UTILITY);
-        root.setStyle("-fx-background-color: white ;");
         stage.show();
     }
 }
