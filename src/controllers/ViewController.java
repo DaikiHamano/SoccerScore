@@ -2,10 +2,15 @@ package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import models.Data;
 
-public class ViewController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ViewController implements Initializable {
 
     @FXML
     private TextField arsenalScore;
@@ -74,7 +79,25 @@ public class ViewController {
     private TextField position;
 
     @FXML
+    private Label errorMessage;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        errorMessage.setText("");
+    }
+
+    @FXML
     void ok(ActionEvent event) {
+        if(arsenalScore.getText().isBlank()){
+            errorMessage.setText("Fill in the blanks");
+        }else if(position.getText().equals("FW")||position.getText().equals("AM")
+                ||position.getText().equals("M") ||position.getText().equals("D")){
+            errorMessage.setText("");
+        }else{
+            errorMessage.setText("Put a proper position");
+        }
+
+
         Data data = new Data(Integer.parseInt(arsenalScore.getText()),Integer.parseInt(opponentScore.getText()),
                 Integer.parseInt(goal.getText()),Integer.parseInt(assist.getText()),
                 Integer.parseInt(shots.getText()),Integer.parseInt(keyPasses.getText()),
@@ -85,7 +108,7 @@ public class ViewController {
                 Integer.parseInt(pa.getText()),Integer.parseInt(crosses.getText()),
                 Integer.parseInt(accCrosses.getText()),Integer.parseInt(accLb.getText()),
                 Integer.parseInt(redCard.getText()),Integer.parseInt(givenPk.getText()),
-                Integer.parseInt(givenPk.getText()),arsenalScore.getText());
+                Integer.parseInt(givenPk.getText()),position.getText());
     }
 
     @FXML
@@ -98,4 +121,10 @@ public class ViewController {
         givenPk.clear();position.clear();
     }
 
+
+
+
+//if(position.equals("FW")||position.equals("AM")||position.equals("M")||position.equals("D")){
+//        this.position = position;
+//    }
 }
