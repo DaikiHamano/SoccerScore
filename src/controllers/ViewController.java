@@ -134,8 +134,23 @@ public class ViewController implements Initializable {
                 Integer.parseInt(accCrosses.getText()),Integer.parseInt(accLb.getText()),
                 Integer.parseInt(givenPk.getText()), Integer.parseInt(givenPk.getText()),position.getText());
 
-
-        score.setText(String.valueOf(data.getTotal()));
+        //to check the redCard
+        if(no.isSelected()){
+            score.setText(data.getTotalScore());
+        }else{
+            double redTotal = data.getTotal() - 2;
+            if(redTotal >= 3){
+                score.setText("S");
+            }else if(redTotal >= 2){
+                score.setText("A");
+            }else if(redTotal >= 1){
+                score.setText("B");
+            }else if(redTotal >= 0){
+                score.setText("C");
+            }else{
+                score.setText("D");
+            }
+        }
     }
 
     //for deleting
@@ -147,5 +162,8 @@ public class ViewController implements Initializable {
         clearances.clear();blockedShots.clear();pa.clear();crosses.clear();
         accCrosses.clear();accLb.clear();givePk.clear();
         givenPk.clear();position.clear();
+        score.setText("");
+        no.setSelected(true);
+        errorMessage.setText("");
     }
 }

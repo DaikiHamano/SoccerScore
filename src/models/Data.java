@@ -1,6 +1,5 @@
 package models;
 
-import javafx.scene.control.Toggle;
 
 public class Data {
 
@@ -216,8 +215,12 @@ public class Data {
           this.position = position;
        }
 
+       public double getTotal() {
+          return total;
+       }
+
        //this is a method to calculate the total
-       public double getTotal(){
+       public void calculate(){
            total = total + goal + pk * 0.5 + assist * 0.5 + keyPasses * 0.25
                          + aerialsWon * 0.1 + dribbles * 0.1 + clearances * 0.1
                          + accLb * 0.1 + givePk * -1 + givenPk + crosses * 0.05
@@ -263,7 +266,22 @@ public class Data {
           if(pa <= 70){
               total = total - 0.1;
           }
+       }
 
-          return total;
+       //the method that returns the total after the check the total
+       public String getTotalScore(){
+           calculate();
+
+           if(total >= 3){
+               return "S";
+           }else if(total >= 2){
+               return "A";
+           }else if(total >= 1){
+               return "B";
+           }else if(total >= 0){
+               return "C";
+           }else{
+               return "D";
+           }
        }
 }
