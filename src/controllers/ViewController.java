@@ -91,11 +91,15 @@ public class ViewController implements Initializable {
     @FXML
     private Label score;
 
+    @FXML
+    private Label value;
+
     //to reset the message first
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         errorMessage.setText("");
         score.setText("");
+        value.setText("");
     }
 
     //to check the blank and if the word is correct or not
@@ -114,10 +118,6 @@ public class ViewController implements Initializable {
         }else if(position.getText().equals("FW")||position.getText().equals("AM")
                 ||position.getText().equals("M")||position.getText().equals("D")){
             errorMessage.setText("");
-        //to check the score
-        }else if(Integer.parseInt(arsenalScore.getText()) < Integer.parseInt(goal.getText()) +
-                Integer.parseInt(assist.getText()) + Integer.parseInt(pk.getText())){
-            errorMessage.setText("Check the goal and assist");
         }else{
             errorMessage.setText("Put a proper position");
         }
@@ -137,6 +137,8 @@ public class ViewController implements Initializable {
         //to check the redCard
         if(no.isSelected()){
             score.setText(data.getTotalScore());
+            double l = ((double)Math.round(data.getTotal() * 10))/10;
+            value.setText(String.valueOf(l));
         }else{
             double redTotal = data.getTotal() - 2;
             if(redTotal >= 3){
@@ -150,6 +152,8 @@ public class ViewController implements Initializable {
             }else{
                 score.setText("D");
             }
+            double l = ((double)Math.round(data.getTotal() * 10))/10;
+            value.setText(String.valueOf(l));
         }
     }
 
@@ -163,6 +167,7 @@ public class ViewController implements Initializable {
         accCrosses.clear();accLb.clear();givePk.clear();
         givenPk.clear();position.clear();
         score.setText("");
+        value.setText("");
         no.setSelected(true);
         errorMessage.setText("");
     }

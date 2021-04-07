@@ -5,7 +5,6 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -189,6 +188,6 @@
             <Font size="96.0" />
          </font>
       </Label>
-      <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutX="339.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="value" layoutX="590.0" layoutY="139.0" text="value" />
    </children>
 </AnchorPane>

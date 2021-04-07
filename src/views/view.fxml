@@ -188,5 +188,6 @@
             <Font size="96.0" />
          </font>
       </Label>
+      <Label fx:id="value" layoutX="590.0" layoutY="139.0" text="value" />
    </children>
 </AnchorPane>
